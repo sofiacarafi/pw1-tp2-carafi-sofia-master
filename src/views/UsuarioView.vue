@@ -1,6 +1,6 @@
 <script setup>
-import UsuarioOpciones from '../components/UsuarioOpciones.vue';
-import TusEventosLista from '../components/TusEventosLista.vue';
+import UsuarioNuevo from '../components/UsuarioNuevo.vue';
+
 
 
 </script>
@@ -9,6 +9,6 @@ import TusEventosLista from '../components/TusEventosLista.vue';
 
 <template>
 
-<UsuarioOpciones></UsuarioOpciones>
-<TusEventosLista></TusEventosLista>
+<UsuarioNuevo></UsuarioNuevo>
+
 </template>

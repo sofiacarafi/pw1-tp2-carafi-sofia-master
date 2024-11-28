@@ -79,5 +79,5 @@ git remote add origin https://github.com/sofiacarafi/pw1-tp2-carafi-sofia-master
 
 -Para subir los commits a la nube
 ```bash
-git push origin master
+
 ```

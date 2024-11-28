@@ -17,7 +17,7 @@ fetch('/actividades.json')
 
 <template>
 
-<H1 class="text-center mt-5"> Actividades</H1>
+<h1 class="text-center mt-5"> Actividades</h1>
 
 <div v-for="actividad in actividades ">
     <RouterLink class="text-decoration-none"  :to= "`/actividades/${actividad.id}`" >

@@ -6,6 +6,13 @@
     titulo: String,
     fecha: String
   });
+    async function obtenerReserva(){
+    const reservaGuardada = await localStorage.setItem("reservaSelecionada");
+    return reservaGuardada? JSON.parse(reservaGuardada):"NoHayReserva"
+
+  }
+ 
+  
   </script>
   <template>
     <div class="contenedor-eventos">
@@ -18,6 +25,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div v-if="Reservar">
+      <p>{{ Reservar.titulo }}</p>
+      
     </div>
   </template>
   

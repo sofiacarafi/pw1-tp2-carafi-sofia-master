@@ -12,6 +12,26 @@ const actividad = ref (datosActividades.find((actividad) => actividad.id === act
 
 
 
+function GuardarReserva() {
+  fetch('/public/actividades.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar el archivo JSON');
+      }
+      return response.json(); 
+    })
+    .then(reserva => {
+      localStorage.setItem("reservaSeleccionada", JSON.stringify(reserva));
+      console.log("Reserva guardada:", reserva); 
+    })
+    .catch(error => {
+      console.error('Error al cargar el archivo JSON:', error);
+    });
+}
+    
+    
+
+
 
 
 </script>
@@ -26,7 +46,7 @@ const actividad = ref (datosActividades.find((actividad) => actividad.id === act
       <h1 class="titulo_actividades">{{ actividad.titulo }}</h1>
       <p class="card-text">{{ actividad.descripcion }}</p>
       <p>{{ actividad.precio }}</p>
-      <RouterLink to = "/formulario-eventos"><button class="btn btn-primary mt-4">Reservar</button></RouterLink>
+      <RouterLink to = "/formulario-eventos"><button @click="guardarReserva(Reservar)" class="btn btn-primary mt-4">Reservar</button></RouterLink>
     </div>
      </div>
     </div>

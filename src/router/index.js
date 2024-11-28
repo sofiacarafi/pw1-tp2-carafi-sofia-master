@@ -6,6 +6,7 @@ import SobreNosotrosView from '@/views/SobreNosotrosView.vue'
 import ContactoView from '@/views/ContactoView.vue'
 import UsuarioView from '@/views/UsuarioView.vue'
 import FormularioEventos from '@/components/FormularioEventos.vue'
+import EditarUsuario from '@/components/EditarUsuario.vue'
 
 
 
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/usuario',
       name: 'usuario',
       component: UsuarioView
+    },
+    {
+      path: '/editar',
+      name: 'editar',
+      component: EditarUsuario
     },
     {
       path: '/formulario-eventos',
