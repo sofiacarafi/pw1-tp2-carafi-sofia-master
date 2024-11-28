@@ -69,4 +69,15 @@ git commit -m "Proyecto Base"
 git status
 ```
 
+-Me creo una cuenta en github
+-Vinculo el repositorio con lo local
 
+
+```bash
+git remote add origin https://github.com/sofiacarafi/pw1-tp2-carafi-sofia-master.git
+```
+
+-Para subir los commits a la nube
+```bash
+git push origin master
+```
