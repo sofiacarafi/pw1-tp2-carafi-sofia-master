@@ -1,0 +1,31 @@
+
+[{
+    "id": 1,
+    "imagen": "/public/img/actbuceo.jpg",
+    "date": "27/02/2024",
+    "titulo" : "Tarde de buseo",
+    "descripcion" : "Anotate y compartí una tarde de buseo con nuestro equipo y ayudanos a mantener nuestro oceano limpio!",
+    "precio" :"$45.000"
+
+    
+
+},
+
+{
+    "id": 2,
+    "imagen": "/public/img/actsoltartortuga.jpg",
+    "date": "25/03/2024",
+    "titulo" : "Liberen a las tortugas",
+    "descripcion" : "Compartí un evento unico que no te lo vas a olvidar.Qeremos que nos acompañes a liberar a estas tortugas bebes.",
+    "precio" :"$17.000"
+},
+
+{
+    "id": 3,
+    "imagen": "/public/img/actrecolectar.jpg",
+    "date": "22/08/2024",
+    "titulo" : "Como podemos ayudar",
+    "descripcion" : "Precenciá una de las mejores charlas informativas de commo cuidar nuestro oceano.",
+    "precio" :"$7.000"
+
+}]
