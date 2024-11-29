@@ -1,38 +1,28 @@
 <script setup>
 import TusEventos from './TusEventos.vue';
-import ImgBuceo from '/img/actbuceo.jpg';
-import ImgSoltarTortugas from '/img/actsoltartortuga.jpg';
+import { ref, onMounted } from 'vue';
 
+const eventosReservados = ref([]);
 
-let datos = [
-    {
-    imagen : ImgBuceo,
-    titulo : "Buceo",
-    fecha : "27/02/2024",
-    
-},
-{
-    imagen : ImgSoltarTortugas,
-    titulo : "Soltar tortugas",
-    fecha : "25/03/2024",
-  
-},
+function cargarReservas() {
+  eventosReservados.value = JSON.parse(localStorage.getItem("reservas")) || [];
+}
 
-
-]
+onMounted(() => {
+  console.log('TusEventosLista montado');
+  cargarReservas();
+});
 
 </script>
 
-
 <template>
-     <h2 class="text-center mt-5">Tus proximos eventos</h2>
-    
-    <TusEventos
-      v-for="dato in datos "
-      :imagen="dato.imagen"
-      :titulo="dato.titulo"
-      :fecha="dato.fecha"
-      ></TusEventos>
- 
-
-   </template>
+  <h2 class="text-center mt-5">Tus próximos eventos</h2>
+  <!-- Mostrar actividades reservadas -->
+  <TusEventos
+    v-for="(evento, index) in eventosReservados"
+    :key="index"
+    :imagen="evento.imagen"
+    :titulo="evento.titulo"
+    :fecha="evento.fecha"
+  />
+</template>

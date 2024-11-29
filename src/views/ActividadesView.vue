@@ -24,7 +24,7 @@ fetch('/actividades.json')
         <div class=" container-card d-flex flex-colum mt-3 ">
     <div class="">
         <div class="card m-2 ">
-    <img :src="actividad.imagen" class="card-img-top border-4 " :alt="titulo">
+    <img :src="actividad.imagen" class="card-img-top border-4 " :alt="actividad.titulo">
     <div class="card-body ">
      <p class="card-date">{{ actividad.date }}</p>
       <h1 class="titulo_actividades">{{ actividad.titulo }}</h1>

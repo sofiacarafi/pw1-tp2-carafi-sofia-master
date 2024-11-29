@@ -43,7 +43,7 @@ export default {
 </script>
 <template>
     <div class="about text-center mt-5 m-2">
-        <h1>Nuevo Usuario</h1>
+        <h1>Iniciar secion</h1>
         <hr>
         <form v-on:submit.prevent="postUser" action="" class="">
             <label for="">Nombre</label>
