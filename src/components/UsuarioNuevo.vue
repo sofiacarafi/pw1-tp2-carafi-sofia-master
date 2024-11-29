@@ -54,7 +54,7 @@ export default {
 
 
             <label for="">Contraseña</label>
-            <input type="text" v-model="password" class="form-control border border-white rounded p-2 mb-3 border-opacity-25">
+            <input type="password" v-model="password" class="form-control border border-white rounded p-2 mb-3 border-opacity-25">
 
             <button type="submit" class="btn btn-success m-2">Guardar</button>
             
