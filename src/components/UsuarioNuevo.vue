@@ -1,49 +1,94 @@
-<script>
-export default {
-    data(){
-        return {
 
-            id_user: 0,
-            name: '',
-            email: '',
-            password: ''
-        }
+  <script>
+  export default {
+    data(){
+      return {
+        users: [],
+        id_user: 0,
+        name: '',
+        email: '',
+        password: ''
+      }
+    },
+    created() {
+      this.getUsers();
     },
     methods: {
-    async postUser(){
+      async getUsers(){
+
         try {
-            const data = {
-                name: this.name,
-                email: this.email,
-                password: this.password
-            }
-
-            const endPoint = 'http://127.0.0.1/backend/postUser.php';
-            const config = {
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify(data)
-            }
-            const response = await fetch(endPoint, config);
-            const json = await response.json();
-            
-            this.$router.push('/editar');
-
+          const endPoint = 'http://127.0.0.1/backend/getUser.php';
+          console.log('fetch')
+          const response = await fetch(endPoint);
+          const json = await response.json();
+          console.log(json);
+          this.users = json;
+          
         } catch (error) {
-            console.error(error)
+          alert('Error del servidor')
+        }
+      },
+
+      async postUser(){
+        try {
+          const data = {
+            name: this.name,
+            email: this.email,
+            password: this.password
+          }
+
+          const endPoint = 'http://127.0.0.1/backend/postUser.php';
+          const config = {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(data)
+          }
+          const response = await fetch(endPoint, config);
+          const json = await response.json();
+          console.log(json);
+          this.getUsers()
+          
+
+
+          console.log(data)
+        } catch (error) {
+          console.error(error)
         }
 
 
-    },
+      },
+      async deleteUser(user){
+        try {
+          const data = {
+            id_user: user.id_user
+          }
 
+          const endPoint = 'http://127.0.0.1/backend/deleteUser.php';
+          const config = {
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(data)
+          }
+          const response = await fetch(endPoint, config);
+          const json = await response.json();
+          console.log(json);
+          this.getUsers()
+          
+        } catch (error) {
+          console.error(error)
+        }
+      }
     }
   }
 </script>
+
 <template>
-    <div class="about text-center mt-5 m-2">
-        <h1>Iniciar secion</h1>
+    <div class="about text-center mt-5 m-2 mb-5">
+        <h1>Incripciones Nuevas</h1>
         <hr>
         <form v-on:submit.prevent="postUser" action="" class="">
             <label for="">Nombre</label>
@@ -58,8 +103,16 @@ export default {
 
             <button type="submit" class="btn btn-success m-2">Guardar</button>
             
-            <RouterLink to = "/"><button type="submit" class="btn btn-success m-2 ">Cancelar</button></RouterLink>
+           
         </form>
+        <ul>
+        <li v-for="user in users">
+            <strong>{{ user.name }}</strong>
+            <span>{{ user.email }}</span>
+            <button v-on:click="deleteUser(user)" type="button" class=" btn bg-danger  m-2"> X</button>
+
+        </li>
+    </ul>
     </div>
 
 
@@ -71,16 +124,8 @@ export default {
 
 
 
-<style>
-@media (min-width: 1024px) {
-    .about {
-        min-height: 100vh;
-        display: flex;
-        margin: 20px;
-        
-    }
-}
-</style>
+
+
 
 
 

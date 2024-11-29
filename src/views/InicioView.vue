@@ -4,6 +4,7 @@ import Carusel from '../components/Carusel.vue';
 import SobreNosotros from '../components/SobreNosotros.vue';
 import Actividades from '../components/Actividades.vue';
 import Suscribite from '../components/Suscribite.vue';
+import UsuarioNuevo from '@/components/UsuarioNuevo.vue';
 
 
 
@@ -18,6 +19,7 @@ import Suscribite from '../components/Suscribite.vue';
 <RouterLink class="d-flex flex-column align-items-center text-decoration-none" to = "/sobre-nosotros"> <button type="button" class="btn btn-sm mt-1 ">Conoce mas</button> </RouterLink>
 <Actividades></Actividades>
 <Suscribite></Suscribite>
+<UsuarioNuevo></UsuarioNuevo>
 
 
 
