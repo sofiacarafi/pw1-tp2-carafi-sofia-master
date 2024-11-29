@@ -13,7 +13,7 @@ import IconoUsuario from '../components/icons/IconoUsuario.vue'
             </div>
 
             <div class="position-absolute top-0 end-0 d-inline-block align-text-top me-3 mt-2 " >
-                <RouterLink to = "/usuario"><IconoUsuario></IconoUsuario></RouterLink>
+                <RouterLink to = "/editar"><IconoUsuario></IconoUsuario></RouterLink>
             </div>
         </nav>
     </div>

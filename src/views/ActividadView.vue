@@ -3,22 +3,17 @@ import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import datosActividades from '/public/actividades.json';
 
-// Obtén el parámetro de la URL
 const route = useRoute();
 const router = useRouter();
 const actividadId = Number(route.params.id);
-
-// Busca la actividad específica
 const actividad = ref(
   datosActividades.find((actividad) => actividad.id === actividadId)
 );
-
-// Función para guardar la actividad seleccionada en localStorage
 function guardarReserva() {
   if (actividad.value) {
     localStorage.setItem('reservaSeleccionada', JSON.stringify(actividad.value));
     console.log('Actividad reservada:', actividad.value);
-    router.push('/formulario-eventos'); // Navega al formulario después de guardar
+    router.push('/formulario-eventos'); 
   } else {
     console.error('No se pudo encontrar la actividad.');
   }
